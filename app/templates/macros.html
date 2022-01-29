@@ -1,0 +1,32 @@
+{% macro displayHeadlineList(headline_list) %}
+
+    {% for headline in headline_list %}
+        <div>
+            <div class="image-holder">
+                <a href="{{headline.url}}"> <img src="{{ headline.image }}" alt=""></a>
+            </div>
+            <a href="{{ headline.url }}" class="text-primary text-sm">{{ headline.title|truncate(100) }}</a>
+            <p class="description">{{ headline.description|truncate(130) }}</p>
+            <p><strong>updated {{ headline.publishedAt |truncate(13)}}</strong></p>
+        </div><br>
+    {% endfor %}
+{% endmacro %}
+
+{% macro displayInNutshell(headline_list) %}
+
+    {% for headline in headline_list %}
+        <li class="category-info">
+            <span class="category-headline"><span>{{ headline.publishedAt}} </span><a href="{{headline.url}}" class="text-dark">{{ headline.title }}</a> </span>
+            <a href="{{headline.url}}" class="text-primary">Read more... </a>
+        </li>
+    {% endfor %}
+{% endmacro %}
+
+{% macro displaySources(source_list) %}
+
+    {% for source in source_list %}
+        <li class="source-list text-primary text-muted">
+            <a href="/article/{{source.id}}" class="text-danger p-2 source-name">{{ source.name }}</a>
+        </li>
+    {% endfor %}
+{% endmacro %}
