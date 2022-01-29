@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock %}
+    {% block content %}
+    <div class="container-fluid m-0 pl-2">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="horizontal-border mt-3">
+                    <div class="intro">
+                        IN A NUTSHELL
+                    </div>
+                </div>
+                    <div class="content">
+                        {{macro.displayInNutshell(category)}}
+                    </div>
+            </div>
+            <div class="col-md-6">
+                <div class="horizontal-border mt-3 mb-2">
+                    <div class="intro">
+                        LATEST NEWS
+                    </div>
+                </div>
+                <div class="headline-container">
+                    {{macro.displayHeadlineList(category)}}
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div class="source-container">
+                    <div class="horizontal-border mt-3">
+                        <div class="intro">
+                            SOURCES
+                        </div>
+                    </div>
+                    {{macro.displaySources(sources)}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endblock %}
