@@ -1,6 +1,6 @@
 class Article:
     '''
-   Article class to define article objects
+    Article class to define article objects
     '''
     def __init__(self,image,title,author,description,time,url):
         self.image = image
