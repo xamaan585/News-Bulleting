@@ -1,15 +1,15 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
-from flask import Blueprint
 
 bootstrap = Bootstrap()
 
 def create_app(config_name):
     app = Flask(__name__)
-
+    # breakpoint()
     # Creating the app configurations
-    app.config.from_object(config_options[config_name])
+    app.config.from_object(config_options['development'])
+  
 
     # Initializing flask extensions
     bootstrap.init_app(app)
